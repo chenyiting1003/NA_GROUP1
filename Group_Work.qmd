@@ -107,6 +107,11 @@ https://insideairbnb.com/about/
 ::: duedate
 ( 2 points; Answer due Week 7 )
 :::
+An inline citation example: As discussed on @insideairbnb, there are many...
+
+A parenthetical citation example: There are many ways to research Airbnb [see, for example, @insideairbnb]...
+
+## 2. Why did they collect the InsideAirbnb data?
 
 Inside Airbnb collects data to address the impact of Airbnb and similar short-term rental platforms on housing and communities. The key motivations and objectives include:
 
@@ -121,12 +126,6 @@ Increase Transparency: Highlight inaccuracies and omissions in Airbnb's official
 Support Policy Development: Offer actionable data to governments and communities to help regulate short-term rentals effectively.
 Promote Public Discourse: Empower activists, policymakers, scholars, and communities to better understand and discuss the impact of Airbnb on housing and neighborhoods.
 The project aims to advocate for sustainable housing policies, empower local communities, and support housing activists, journalists, and researchers in addressing challenges posed by short-term rentals.
-
-An inline citation example: As discussed on @insideairbnb, there are many...
-
-A parenthetical citation example: There are many ways to research Airbnb [see, for example, @insideairbnb]...
-
-## 2. Why did they collect the InsideAirbnb data?
 
 ::: duedate
 ( 4 points; Answer due Week 7 )
