@@ -92,9 +92,35 @@ else:
 
 ## 1. Who collected the InsideAirbnb data?
 
+The data on the Inside Airbnb website comes from publicly available information on the Airbnb website. 
+It has been analyzed, cleaned and aggregated for public discussion. 
+https://insideairbnb.com/
+
+There are many people who have contributed to this. 
+Murray Cox uses data, media, and technology for social change, and is the founder and current chief data activist at Inside Airbnb. 
+John Morris is a founding collaborator on the website design and redesign and the creative producer of the project's main report. 
+Tyler Higgins works to build and organize Inside Airbnb's data and activism community. 
+Regarding past collaborators, Michael Ziggy Mintz is a fixture in New York City's civic and housing data community, and he worked on automating search for Airbnb. 
+Anya Sophe Behn is one of the project's early collaborators, straddling technology and the arts, supporting the project's mission, stabilizing the search code, and moving the project to the cloud. 
+https://insideairbnb.com/about/
+
 ::: duedate
 ( 2 points; Answer due Week 7 )
 :::
+
+Inside Airbnb collects data to address the impact of Airbnb and similar short-term rental platforms on housing and communities. The key motivations and objectives include:
+
+Driving Factors:
+
+Addressing Misleading and Incomplete Data: Airbnb often downplays the role of large-scale landlords and fails to provide sufficient metrics for analyzing broader economic and social impacts.
+Public Interest: Short-term rentals reduce housing availability, disrupt neighborhoods, and increase housing costs, creating the need for independent data to uncover these effects.
+
+Objectives:
+
+Increase Transparency: Highlight inaccuracies and omissions in Airbnb's official reports to provide a clearer understanding of short-term rental impacts.
+Support Policy Development: Offer actionable data to governments and communities to help regulate short-term rentals effectively.
+Promote Public Discourse: Empower activists, policymakers, scholars, and communities to better understand and discuss the impact of Airbnb on housing and neighborhoods.
+The project aims to advocate for sustainable housing policies, empower local communities, and support housing activists, journalists, and researchers in addressing challenges posed by short-term rentals.
 
 An inline citation example: As discussed on @insideairbnb, there are many...
 
