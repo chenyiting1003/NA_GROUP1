@@ -145,6 +145,24 @@ ax.set_xlim([0,500]);
 
 ## 3. How was the InsideAirbnb data collected?
 
+Inside Airbnb collects data from publicly available information on Airbnb’s website. This includes listings, prices, calendars, reviews, and host details. 
+The data is extracted using Web Scraping technology, which parses webpage code to retrieve publicly displayed information. 
+For instance, listing locations (obfuscated for privacy), host activity (e.g., managing multiple listings), and availability calendars are captured. 
+The data is regularly updated to reflect the latest market trends and analyzed, cleaned, and aggregated to support public discussions and policymaking.
+
+In contrast, Airbnb collects user interaction data through its User Signals Platform (USP). 
+This platform uses advanced real-time stream processing to analyze user activities like searches, bookings, and listing views. 
+The process involves:
+Event Collection: User activities generate Kafka events, which are streamed to the system.
+Data Transformation: Apache Flink processes these events, converting them into actionable "User Signals."
+Data Storage: Transformed signals are stored in a Key-Value Store for real-time querying and analysis.
+Session Insights: Techniques like session windowing (e.g., sliding windows) enable behavioral analysis over specific time frames.
+Stability Mechanisms: Standby task managers ensure minimal downtime during system failures.
+
+These methods enable Airbnb to process user actions for applications such as personalization, segmentation, 
+and engagement analysis, while Inside Airbnb focuses on using publicly available data to analyze the platform's broader impact on housing and communities.
+
+
 ::: duedate
 ( 5 points; Answer due Week 8 )
 :::
