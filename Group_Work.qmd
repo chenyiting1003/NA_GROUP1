@@ -1,4 +1,20 @@
 ---
+title: 1. Who collected the InsideAirbnb data?
+jupyter:
+  jupytext:
+    text_representation:
+      extension: .qmd
+      format_name: quarto
+      format_version: '1.0'
+      jupytext_version: 1.16.4
+  kernelspec:
+    display_name: Python (base)
+    language: python
+    name: base
+---
+
+```{python}
+---
 bibliography: bio.bib
 csl: harvard-cite-them-right.csl
 title: Group Name's Group Project
@@ -45,6 +61,7 @@ jupyter:
     language: python
     name: base
 ---
+```
 
 ```{python}
 #| echo: false
@@ -65,46 +82,16 @@ else:
   df.to_parquet(file)
 ```
 
-## 1. Who collected the InsideAirbnb data?
 
-The data on the Inside Airbnb website comes from publicly available information on the Airbnb website. 
-It has been analyzed, cleaned and aggregated for public discussion. 
-https://insideairbnb.com/
-
-There are many people who have contributed to this. 
-Murray Cox uses data, media, and technology for social change, and is the founder and current chief data activist at Inside Airbnb. 
-John Morris is a founding collaborator on the website design and redesign and the creative producer of the project's main report. 
-Tyler Higgins works to build and organize Inside Airbnb's data and activism community. 
-Regarding past collaborators, Michael Ziggy Mintz is a fixture in New York City's civic and housing data community, and he worked on automating search for Airbnb. 
-Anya Sophe Behn is one of the project's early collaborators, straddling technology and the arts, supporting the project's mission, stabilizing the search code, and moving the project to the cloud. 
-https://insideairbnb.com/about/
-
-::: duedate
-( 2 points; Answer due Week 7 )
-:::
-An inline citation example: As discussed on @insideairbnb, there are many...
-
-A parenthetical citation example: There are many ways to research Airbnb [see, for example, @insideairbnb]...
+The data is sourced from publicly available information on the Airbnb website and is analyzed, cleaned, and aggregated for public discussion (Inside Airbnb, n.d.). Key contributors include the founder and collaborators who developed tools to enhance data transparency, such as automating search functionality and stabilizing the platform’s code (Inside Airbnb, n.d.; Alsudais, 2021).
 
 ## 2. Why did they collect the InsideAirbnb data?
 
-Inside Airbnb collects data to address the impact of Airbnb and similar short-term rental platforms on housing and communities. The key motivations and objectives include:
+Inside Airbnb collects data to enhance transparency by addressing incomplete and biased reports(Inside Airbnb, n.d.; Alsudais, 2021). Studies show that short-term rentals disrupt communities, drive gentrification, and exacerbate housing inequities in cities like New York, London, and Nanjing (Jiao & Bai, 2020; Wachsmuth & Weisler, 2018; Sun et al., 2021).
+To promote housing equity, Inside Airbnb focuses on:
+Increasing Transparency: Highlight the effects of short-term rentals on housing availability and affordability (Inside Airbnb, n.d.; Garcia-Ayllon, 2018).
+Supporting Policy Development: Provide actionable data to regulate short-term rentals and tackle urban challenges (UK Government, 2023; Jiao & Bai, 2020).
 
-Driving Factors:
-
-Addressing Misleading and Incomplete Data: Airbnb often downplays the role of large-scale landlords and fails to provide sufficient metrics for analyzing broader economic and social impacts.
-Public Interest: Short-term rentals reduce housing availability, disrupt neighborhoods, and increase housing costs, creating the need for independent data to uncover these effects.
-
-Objectives:
-
-Increase Transparency: Highlight inaccuracies and omissions in Airbnb's official reports to provide a clearer understanding of short-term rental impacts.
-Support Policy Development: Offer actionable data to governments and communities to help regulate short-term rentals effectively.
-Promote Public Discourse: Empower activists, policymakers, scholars, and communities to better understand and discuss the impact of Airbnb on housing and neighborhoods.
-The project aims to advocate for sustainable housing policies, empower local communities, and support housing activists, journalists, and researchers in addressing challenges posed by short-term rentals.
-
-::: duedate
-( 4 points; Answer due Week 7 )
-:::
 
 ```{python}
 #| output: asis
@@ -120,33 +107,24 @@ ax.set_xlim([0,500]);
 
 ## 3. How was the InsideAirbnb data collected?
 
-Inside Airbnb collects data from publicly available information on Airbnb’s website. This includes listings, prices, calendars, reviews, and host details. 
-The data is extracted using Web Scraping technology, which parses webpage code to retrieve publicly displayed information. 
-For instance, listing locations (obfuscated for privacy), host activity (e.g., managing multiple listings), and availability calendars are captured. 
-The data is regularly updated to reflect the latest market trends and analyzed, cleaned, and aggregated to support public discussions and policymaking.
+Inside Airbnb relies on publicly accessible data to analyze the platform’s impact on housing and communities.
+Using web scraping, it extracts and aggregates information such as listings, prices, calendars, reviews, and host details from Airbnb’s website, which is then cleaned and prepared for public discussions and policymaking(Inside Airbnb, n.d). Meanwhile, Airbnb processes proprietary user interaction data through its User Signals Platform (USP), employing real-time analytics to support applications like personalization and market segmentation(Jiao & Bai, 2020).
 
-In contrast, Airbnb collects user interaction data through its User Signals Platform (USP). 
-This platform uses advanced real-time stream processing to analyze user activities like searches, bookings, and listing views. 
-The process involves:
-Event Collection: User activities generate Kafka events, which are streamed to the system.
-Data Transformation: Apache Flink processes these events, converting them into actionable "User Signals."
-Data Storage: Transformed signals are stored in a Key-Value Store for real-time querying and analysis.
-Session Insights: Techniques like session windowing (e.g., sliding windows) enable behavioral analysis over specific time frames.
-Stability Mechanisms: Standby task managers ensure minimal downtime during system failures.
-
-These methods enable Airbnb to process user actions for applications such as personalization, segmentation, 
-and engagement analysis, while Inside Airbnb focuses on using publicly available data to analyze the platform's broader impact on housing and communities.
-
-
-::: duedate
-( 5 points; Answer due Week 8 )
-:::
 
 ## 4. How does the method of collection impact the completeness and/or accuracy of the InsideAirbnb data set's representation of the process it seeks to study, and what wider issues does this raise?
 
-::: duedate
-( 11 points; Answer due Week 9 )
-:::
+1. **Impact on Data Completeness and Accuracy**
+
+Inside Airbnb data is gathered through web scraping. It may exclude some listings due to technical or legal barriers, such as anti-scraping technologies deployed by Airbnb (API Terms of Service, 2023). In addition, data collection is done at intervals, which means dynamic changes such as new or deleted lists can be missed. (Gurran & Phibbs, 2017)  And the data collection method may underrate the number of listings. This factor contribute to data gaps, potentially overlooking numerous active listings and limiting the accuracy of analyses (Adamiak, 2019).
+
+**2.Limitations in Timeliness and Geographic Representation in Reflecting Airbnb Data**
+
+InsideAirbnb's data collection method relies on periodic snapshots, with updates occurring every few months. This frequency means it may miss real-time changes, such as new or removed listings, limiting its ability to capture the dynamic nature of Airbnb’s platform. (Gurran & Phibbs, 2017)Additionally, although InsideAirbnb gathers data from cities in dozens of countries, it does not cover all Airbnb regions, which restricts its ability to fully represent the broader market. This affects the accuracy of its representation of Airbnb's operations across different geographical areas (InsideAirbnb, 2023).
+
+**3.wider issues**
+
+On one hand, the possibility that research using this dataset could unintentionally reinforce biases in the representation of the Airbnb market, leading to skewed conclusions about the platform’s impact (Adamiak, 2019). Additionally, such research might focus on easily accessible data, like listing distribution and pricing, while overlooking more complex phenomena, such as user behavior or platform strategies. (Comptroller's Office, 2018)On the other hand, scraping data without explicit consent from hosts or Airbnb itself could raise ethical concerns, especially when dealing with sensitive information like earnings or availability 。(Floridi and Taddeo, 2016).
+
 
 ## 5. What ethical considerations does the use of the InsideAirbnb data raise?
 
@@ -186,6 +164,7 @@ with gzip.GzipFile(fileobj=io.BytesIO(response.content)) as gz:
 ```
 
 ```{python}
+#| jupyter: {source_hidden: true}
 from tabulate import tabulate  # 用于格式化表格输出
 
 # 假设数据已经加载为 DataFrame `listings`
@@ -458,3 +437,8 @@ Your QMD file should automatically download your BibTeX and CLS files and any ot
 Written in Markdown and generated from [Quarto](https://quarto.org/). Fonts used: [Spectral](https://fonts.google.com/specimen/Spectral) (mainfont), [Roboto](https://fonts.google.com/specimen/Roboto) ([sansfont]{style="font-family:Sans-Serif;"}) and [JetBrains Mono](https://fonts.google.com/specimen/JetBrains%20Mono) (`monofont`).
 
 ## References
+
+## 7. Drawing on your previous answers, and supporting your response with evidence (e.g. figures, maps, EDA/ESDA, and simple statistical analysis/models drawing on experience from, e.g., CASA0007), how could the InsideAirbnb data set be used to inform the regulation of Short-Term Lets (STL) in London?
+
+
+
