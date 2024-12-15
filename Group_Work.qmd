@@ -1,20 +1,5 @@
 ---
-title: 1. Who collected the InsideAirbnb data?
-jupyter:
-  jupytext:
-    text_representation:
-      extension: .qmd
-      format_name: quarto
-      format_version: '1.0'
-      jupytext_version: 1.16.4
-  kernelspec:
-    display_name: Python (base)
-    language: python
-    name: base
----
-
----
-bibliography: bio.bib
+bibliography: reference.bib
 csl: harvard-cite-them-right.csl
 title: Group Name's Group Project
 execute:
@@ -61,6 +46,11 @@ jupyter:
     name: base
 ---
 
+## Declaration of Authorship {.unnumbered .unlisted}
+We, \[NA_Group1\], pledge our honour that the work presented in this assessment is our own. Where information has been derived from other sources, we confirm that this has been indicated in the work. Where a Large Language Model such as ChatGPT has been used we confirm that we have made its contribution to the final submission clear.
+Date:
+Student Numbers:
+
 ```{python}
 #| echo: false
 import os
@@ -79,6 +69,10 @@ else:
   df = pd.read_parquet(f'{host}/{path}/{file}')
   df.to_parquet(file)
 ```
+
+---
+title: 1. Who collected the InsideAirbnb data?
+---
 
 The data is sourced from publicly available information on the Airbnb website and is analyzed, cleaned, and aggregated for public discussion (Inside Airbnb, n.d.). Key contributors include the founder and collaborators who developed tools to enhance data transparency, such as automating search functionality and stabilizing the platform’s code (Inside Airbnb, n.d.; Alsudais, 2021).
 
@@ -433,6 +427,10 @@ fig.legend(
 fig.suptitle("Number of Airbnb Listings in London Boroughs (2019 vs 2024)", fontsize=18, fontweight='bold')
 plt.show()
 ```
+
+## 7.Drawing on your previous answers, and supporting your response with evidence, how could the InsideAirbnb data set be used to inform the regulation of Short-Term Lets (STL) in London?
+
+hhhhh smile
 
 ## 
 
