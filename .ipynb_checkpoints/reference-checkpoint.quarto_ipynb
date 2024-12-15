@@ -1,0 +1,88 @@
+{
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "---\n",
+        "jupyter:\n",
+        "  jupytext:\n",
+        "    text_representation:\n",
+        "      extension: .qmd\n",
+        "      format_name: quarto\n",
+        "      format_version: '1.0'\n",
+        "      jupytext_version: 1.16.4\n",
+        "  kernelspec:\n",
+        "    display_name: Python (base)\n",
+        "    language: python\n",
+        "    name: base\n",
+        "---\n",
+        "\n",
+        "\n",
+        "{\n",
+        " \"cells\": [\n",
+        "  {\n",
+        "   \"cell_type\": \"markdown\",\n",
+        "   \"id\": \"bb7e4d5a-a3e8-4283-a023-e9c6bd418168\",\n",
+        "   \"metadata\": {},\n",
+        "   \"source\": [\n",
+        "    \"---\\n\",\n",
+        "    \"title: \\\"Reference NA_Group1\\\"\\n\",\n",
+        "    \"output: html_document\\n\",\n",
+        "    \"bibliography: reference_0013.bib\\n\",\n",
+        "    \"---\"\n",
+        "   ]\n",
+        "  },\n",
+        "  {\n",
+        "   \"cell_type\": \"code\",\n",
+        "   \"execution_count\": null,\n",
+        "   \"id\": \"ae91b79f-2242-41be-b8f8-24de7e4af7cb\",\n",
+        "   \"metadata\": {},\n",
+        "   \"outputs\": [],\n",
+        "   \"source\": []\n",
+        "  }\n",
+        " ],\n",
+        " \"metadata\": {\n",
+        "  \"kernelspec\": {\n",
+        "   \"display_name\": \"Python (base)\",\n",
+        "   \"language\": \"python\",\n",
+        "   \"name\": \"base\"\n",
+        "  },\n",
+        "  \"language_info\": {\n",
+        "   \"codemirror_mode\": {\n",
+        "    \"name\": \"ipython\",\n",
+        "    \"version\": 3\n",
+        "   },\n",
+        "   \"file_extension\": \".py\",\n",
+        "   \"mimetype\": \"text/x-python\",\n",
+        "   \"name\": \"python\",\n",
+        "   \"nbconvert_exporter\": \"python\",\n",
+        "   \"pygments_lexer\": \"ipython3\",\n",
+        "   \"version\": \"3.11.9\"\n",
+        "  }\n",
+        " },\n",
+        " \"nbformat\": 4,\n",
+        " \"nbformat_minor\": 5\n",
+        "}\n"
+      ],
+      "id": "bc890da6"
+    }
+  ],
+  "metadata": {
+    "kernelspec": {
+      "display_name": "Python (base)",
+      "language": "python",
+      "name": "base"
+    },
+    "jupytext": {
+      "text_representation": {
+        "extension": ".qmd",
+        "format_name": "quarto",
+        "format_version": "1.0",
+        "jupytext_version": "1.16.4"
+      }
+    }
+  },
+  "nbformat": 4,
+  "nbformat_minor": 5
+}

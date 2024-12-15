@@ -1,21 +1,5 @@
 ---
-title: 1. Who collected the InsideAirbnb data?
-jupyter:
-  jupytext:
-    text_representation:
-      extension: .qmd
-      format_name: quarto
-      format_version: '1.0'
-      jupytext_version: 1.16.4
-  kernelspec:
-    display_name: Python (base)
-    language: python
-    name: base
----
-
-```{python}
----
-bibliography: bio.bib
+bibliography: reference.bib
 csl: harvard-cite-them-right.csl
 title: Group Name's Group Project
 execute:
@@ -61,7 +45,11 @@ jupyter:
     language: python
     name: base
 ---
-```
+
+## Declaration of Authorship {.unnumbered .unlisted}
+We, \[NA_Group1\], pledge our honour that the work presented in this assessment is our own. Where information has been derived from other sources, we confirm that this has been indicated in the work. Where a Large Language Model such as ChatGPT has been used we confirm that we have made its contribution to the final submission clear.
+Date:
+Student Numbers:
 
 ```{python}
 #| echo: false
@@ -82,6 +70,9 @@ else:
   df.to_parquet(file)
 ```
 
+---
+title: 1. Who collected the InsideAirbnb data?
+---
 
 The data is sourced from publicly available information on the Airbnb website and is analyzed, cleaned, and aggregated for public discussion (Inside Airbnb, n.d.). Key contributors include the founder and collaborators who developed tools to enhance data transparency, such as automating search functionality and stabilizing the platform’s code (Inside Airbnb, n.d.; Alsudais, 2021).
 
@@ -91,7 +82,6 @@ Inside Airbnb collects data to enhance transparency by addressing incomplete and
 To promote housing equity, Inside Airbnb focuses on:
 Increasing Transparency: Highlight the effects of short-term rentals on housing availability and affordability (Inside Airbnb, n.d.; Garcia-Ayllon, 2018).
 Supporting Policy Development: Provide actionable data to regulate short-term rentals and tackle urban challenges (UK Government, 2023; Jiao & Bai, 2020).
-
 
 ```{python}
 #| output: asis
@@ -164,25 +154,22 @@ with gzip.GzipFile(fileobj=io.BytesIO(response.content)) as gz:
 ```
 
 ```{python}
-#| jupyter: {source_hidden: true}
 from tabulate import tabulate  # 用于格式化表格输出
 
-# 假设数据已经加载为 DataFrame `listings`
-# 数据应包含以下列：
-# - 'host_total_listings_count' (每个房东的房源数量)
-# - 'room_type' (房源类型: Entire home/apt, Private room, Shared room)
+# 确保 host_id 唯一化
+unique_hosts = listings[['host_id', 'host_total_listings_count', 'room_type']].drop_duplicates()
 
 # 创建分组范围
 bins = [0, 1, 2, 3, 10, 50, 100, 200, float('inf')]
 labels = ['1', '2', '3', '4 to 10', '11 to 50', '51 to 100', '101 to 200', '200 or more']
-listings['host_group'] = pd.cut(listings['host_total_listings_count'], bins=bins, labels=labels)
+unique_hosts['host_group'] = pd.cut(unique_hosts['host_total_listings_count'], bins=bins, labels=labels)
 
-# 计算人数和占比
-grouped = listings.groupby('host_group', observed=True)
+# 计算人数和占比（基于唯一房东）
+grouped = unique_hosts.groupby('host_group', observed=False)
 summary = grouped.size().reset_index(name='Number of Hosts')
 summary['% of Hosts'] = (summary['Number of Hosts'] / summary['Number of Hosts'].sum() * 100).round(2)
 
-# 计算房源类型占比
+# 计算房源类型占比（基于唯一房东）
 room_type_counts = grouped['room_type'].value_counts(normalize=True).unstack(fill_value=0) * 100
 room_type_counts = room_type_counts.round(2)  # 保留两位小数
 
@@ -192,20 +179,47 @@ room_type_counts = room_type_counts[['Entire home/apt', 'Private room', 'Shared 
 # 合并结果
 result = summary.merge(room_type_counts, left_on='host_group', right_index=True, how='left')
 
-# 示例数据
+# 重命名列以匹配表格格式
+result.columns = ['No. listings linked to host ID', 'Number of Hosts', '% of Hosts',
+                  '% Entire home/apt', '% Private room', '% Shared room']
+```
+
+```{python}
+import matplotlib.pyplot as plt
+import pandas as pd
+
+# 原始数据（未包含 TOTAL 行）
 data = {
-    "No. listings linked to host ID": ["1", "2", "3", "4 to 10", "11 to 50", "51 to 100", "101 to 200", "200 or more", "TOTAL"],
-    "Number of Hosts": [29616, 15200, 8292, 17838, 13856, 5070, 2613, 3692, 96177],
-    "% of Hosts": [30.79, 15.8, 8.62, 18.55, 14.41, 5.27, 2.72, 3.84, 100],
-    "% Entire home/apt": [62.34, 55.24, 53.09, 56.4, 74.08, 79.15, 84.62, 95.12, 560.04],
-    "% Private room": [37.14, 44.24, 46.29, 42.8, 25.27, 19.57, 15.35, 3.85, 234.51],
-    "% Shared room": [0.5, 0.51, 0.54, 0.47, 0.53, 0.06, 0.04, 0.08, 2.73],
+    "No. listings linked to host ID": ["1", "2", "3", "4 to 10", "11 to 50", "51 to 100", "101 to 200", "200 or more"],
+    "Number of Hosts": [29616, 13236, 6177, 8820, 2298, 264, 88, 66],
+    "% of Hosts": [48.90, 21.85, 10.20, 14.56, 3.79, 0.44, 0.15, 0.11],
+    "% Entire home/apt": [62.34, 56.51, 55.76, 58.13, 68.89, 74.62, 73.86, 69.70],
+    "% Private room": [37.14, 42.91, 43.53, 41.00, 29.98, 22.35, 25.00, 24.24],
+    "% Shared room": [0.50, 0.57, 0.65, 0.62, 0.91, 0.76, 1.14, 3.03],
 }
 
+# 创建 DataFrame
 df = pd.DataFrame(data)
 
+# 计算 TOTAL 行并限制为两位小数
+total_row = {
+    "No. listings linked to host ID": "TOTAL",
+    "Number of Hosts": df["Number of Hosts"].sum(),
+    "% of Hosts": round(100.00, 2),
+    "% Entire home/apt": round((df["% Entire home/apt"] * df["Number of Hosts"]).sum() / df["Number of Hosts"].sum(), 2),
+    "% Private room": round((df["% Private room"] * df["Number of Hosts"]).sum() / df["Number of Hosts"].sum(), 2),
+    "% Shared room": round((df["% Shared room"] * df["Number of Hosts"]).sum() / df["Number of Hosts"].sum(), 2),
+}
+
+# 添加 TOTAL 行
+df = pd.concat([df, pd.DataFrame([total_row])], ignore_index=True)
+
+# 限制所有小数列为两位小数
+decimal_columns = ["% of Hosts", "% Entire home/apt", "% Private room", "% Shared room"]
+df[decimal_columns] = df[decimal_columns].round(2)
+
 # 创建绘图
-fig, ax = plt.subplots(figsize=(15, 5))  # 设置图表大小（适配行高增加）
+fig, ax = plt.subplots(figsize=(15, 5))  # 设置图表大小
 ax.axis('tight')
 ax.axis('off')
 
@@ -222,43 +236,37 @@ table.auto_set_font_size(False)
 table.set_fontsize(10)
 
 # 调整列宽和行高
-col_widths = {
-    0: 0.25,  # 第一列较宽
-    1: 0.15,  # 其他列等宽
-    2: 0.15,
-    3: 0.15,
-    4: 0.15,
-    5: 0.15,
-    6: 0.15,
-}
-
 row_height = 0.1  # 每行的高度
+first_col_width = 0.3  # 第一列宽度
+other_col_width = 0.15  # 其他列宽度
 
 # 遍历每个单元格，设置宽度和高度
 for (row, col), cell in table.get_celld().items():
     cell.set_edgecolor('black')  # 设置边框颜色
     cell.set_linewidth(0.8)  # 边框宽度
-    
+
     # 设置标题行样式
     if row == 0:  # 标题行
         cell.set_facecolor("#D9D9D9")  # 灰色背景
         cell.set_text_props(fontweight='bold')  # 加粗字体
-        cell.set_width(col_widths[col])  # 调整列宽
-        cell.set_height(row_height + 0.02)  # 标题行稍微高一些
-    else:
-        cell.set_width(col_widths[col])  # 调整内容列宽
-        cell.set_height(row_height)  # 设置行高
-    
-    # 设置总计行背景色
-    if row == len(df):  # 最后一行
+        row_height = 0.15
+    # 设置 TOTAL 行样式
+    elif row == len(df) :  # TOTAL 行
         cell.set_facecolor("#D9D9D9")  # 灰色背景
         cell.set_text_props(fontweight='bold')  # 加粗字体
-    
-    # 设置第二行的背景色
-    if row == 1:  # 第二行
-        cell.set_facecolor("#D9EAF7")  # 设置浅灰色背景
+    # 设置第二行样式
+    elif row == 1:  # 第二行
+        cell.set_facecolor("#D9EAF7")  # 浅蓝色背景
 
-# 显示图表
+    # 设置列宽
+    if col == 0:  # 第一列
+        cell.set_width(first_col_width)
+    else:
+        cell.set_width(other_col_width)
+    # 设置行高
+    cell.set_height(row_height)
+
+# 显示表格
 plt.show()
 ```
 
@@ -420,6 +428,10 @@ fig.suptitle("Number of Airbnb Listings in London Boroughs (2019 vs 2024)", font
 plt.show()
 ```
 
+## 7.Drawing on your previous answers, and supporting your response with evidence, how could the InsideAirbnb data set be used to inform the regulation of Short-Term Lets (STL) in London?
+
+hhhhh smile
+
 ## 
 
 ## 7. Drawing on your previous answers, and supporting your response with evidence (*e.g.* figures, maps, EDA/ESDA, and simple statistical analysis/models drawing on experience from, e.g., CASA0007), how *could* the InsideAirbnb data set be used to inform the regulation of Short-Term Lets (STL) in London?
@@ -439,6 +451,3 @@ Written in Markdown and generated from [Quarto](https://quarto.org/). Fonts used
 ## References
 
 ## 7. Drawing on your previous answers, and supporting your response with evidence (e.g. figures, maps, EDA/ESDA, and simple statistical analysis/models drawing on experience from, e.g., CASA0007), how could the InsideAirbnb data set be used to inform the regulation of Short-Term Lets (STL) in London?
-
-
-
