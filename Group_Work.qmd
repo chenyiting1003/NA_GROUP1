@@ -12,13 +12,12 @@ downloads:
     path: ucl-university-college-harvard.csl
 format:
   pdf:
-    pdf-engine: xelatex
     include-in-header:
       text: |
         \addtokomafont{disposition}{\rmfamily}
     mainfont: Spectral
     sansfont: Roboto Flex
-    monofont: InputMonoCondensed
+    monofont: Roboto Mono
     papersize: a4
     geometry:
       - top=25mm
@@ -46,15 +45,18 @@ jupyter:
 ## Declaration of Authorship {.unnumbered .unlisted}
 We, \[NA_GROUP1\], pledge our honour that the work presented in this assessment is our own. Where information has been derived from other sources, we confirm that this has been indicated in the work. Where a Large Language Model such as ChatGPT has been used we confirm that we have made its contribution to the final submission clear.
 Date:16/12/2024
-Student Numbers:
+Student Numbers:24048055,24143995,24038681,24130339,24050260
+
 ## Brief Group Reflection
 | What Went Well | What Was Challenging |
 |----------------|----------------------|
 | A              | B                    |
 | C              | D                    |
+
 ## Priorities for Feedback
 Are there any areas on which you would appreciate more detailed feedback if we're able to offer it?
 {{< pagebreak >}}
+
 
 # Response to Questions
 
@@ -84,7 +86,7 @@ Inside Airbnb data is gathered through web scraping. It may exclude some listin
 
 InsideAirbnb's data collection method relies on periodic snapshots, with updates occurring every few months. This frequency means it may miss real-time changes, such as new or removed listings, limiting its ability to capture the dynamic nature of Airbnb’s platform[@gurran_when_2017]. Additionally, although InsideAirbnb gathers data from cities in dozens of countries, it does not cover all Airbnb regions, which restricts its ability to fully represent the broader market. This affects the accuracy of its representation of Airbnb's operations across different geographical areas[@inside_airbnb_platform_failures].
 
-**3.wider issues**
+**3.Wider issues**
 
 On one hand, the possibility that research using this dataset could unintentionally reinforce biases in the representation of the Airbnb market, leading to skewed conclusions about the platform’s impact[@adamiak_airbnb_2019]. Additionally, such research might focus on easily accessible data, like listing distribution and pricing, while overlooking more complex phenomena, such as user behavior or platform strategies[@bivens_airbnb_regulations_2021].On the other hand, scraping data without explicit consent from hosts or Airbnb itself could raise ethical concerns, especially when dealing with sensitive information like earnings or availability[@floridi_what_2016].
 
@@ -232,6 +234,7 @@ for (row, col), cell in table.get_celld().items():
 # Display the table
 plt.show()
 ```
+
 
 ```{python}
 # URL of the GitHub file
