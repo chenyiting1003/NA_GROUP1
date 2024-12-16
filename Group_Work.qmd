@@ -48,13 +48,19 @@ Date:16/12/2024
 Student Numbers:24048055,24143995,24038681,24130339,24050260
 
 ## Brief Group Reflection
-| What Went Well | What Was Challenging |
-|----------------|----------------------|
-| A              | B                    |
-| C              | D                    |
+|    What Went Well   |         What Was Challenging           |
+|---------------------|----------------------------------------|
+|  teammates          |   output to pdf                        |
+|  data clean         |   analysis data to prove our opinions  |
+|  useful references  |   explain our discovery in limit word  |
 
 ## Priorities for Feedback
-Are there any areas on which you would appreciate more detailed feedback if we're able to offer it?
+During our group project, we found it challenging to effectively connect the data we analyzed with the points we raised while reading the papers. 
+Although we learned how to perform data analysis and coding exercises in class, and how to read academic papers and form our own insights, combining these two aspects has proven to be difficult. 
+Another issue we faced is that the existing data has many gaps compared to the data we need for our research, such as timeliness issues. We are unsure how to address or substitute for these gaps at the moment.
+Additionally, answering questions concisely requires practice, which was an area we lacked during the semester.
+
+On the positive side, we learned how to communicate our ideas to the public using simpler, non-academic language. 
 {{< pagebreak >}}
 
 
@@ -92,7 +98,7 @@ On one hand, the possibility that research using this dataset could unintentiona
 
 ## 5. What ethical considerations does the use of the InsideAirbnb data raise?
 
-Firstly, the Inside Airbnb is supposed to protect the privacy of the hosts. While Inside Airbnb asserts that it avoids using personal information and processes data carefully [@inside_airbnb_data_assumptions], the raw data scraped from Airbnb’s website often includes host names, housing locations, and other sensitive information. Even when locations are obfuscated, the inclusion of identifiable data challenges the hosts’ right to privacy. Compared with privacy rights, the right to know how the hosts’ information is being used is well protected by Airbnb and Inside Airbnb. As the privacy policies of Airbnb [@airbnb_privacy_policy_2024]maintained, the types of personal information they collected are clearly shown on the website. The process and targets of using these data are also informed and legally guaranteed. Once these policies are changed greatly, they will connect the hosts. Hosts also enter into contracts with Airbnb, consenting to the use of their information. However, a key concern is whether hosts fully comprehend these contractual terms[@airbnb_terms_of_service_2024d]. Finally, the legality of the use of Inside Airbnb data is doubtful. Inside Airbnb made use of the skill of web scraping to get the data from Airbnb instead of getting an API from the platform, which is explicitly forbidden by the terms of service from Airbnb[@airbnb_terms_of_service_2024d]. Moreover, this data acquisition process broke the laws of many regions around the world such as General Data Protection Regulation (GDPA) of Europe and the Privacy Act of Australia [@intersoft_gdpr_2018;@australia_privacy_act_1988]. Although Airbnb has got permissions from the hosts to deal with the sensitive data, Inside Airbnb did not carry out this procedure. With regard to the indirect ethical influence of using data from Inside Airbnb, the problems of discrimination and inequality can be caused.For instance, according to @wachsmuth_airbnb_2018, certain communities may be over-labeled after the analysis through Inside Airbnb data, especially those exist gentrification phenomenon. At the meantime, as @horn_home_2017 mentioned, Inside Airbnb has a high coverage of popular cities or areas. However, there are insufficient listings for those remote regions and markets that are lack of popularity.
+Firstly, the Inside Airbnb is supposed to protect the privacy of the hosts. While Inside Airbnb asserts that it avoids using personal information and processes data carefully [@inside_airbnb_data_assumptions], the raw data scraped from Airbnb’s website often includes host names, housing locations, and other sensitive information. Even when locations are obfuscated, the inclusion of identifiable data challenges the hosts’ right to privacy. Compared with privacy rights, the right to know how the hosts’ information is being used is well protected by Airbnb and Inside Airbnb. As the privacy policies of Airbnb [@airbnb_privacy_policy_2024]maintained, the types of personal information they collected are clearly shown on the website. The process and targets of using these data are also informed and legally guaranteed. Once these policies are changed greatly, they will connect the hosts. Hosts also enter into contracts with Airbnb, consenting to the use of their information. However, a key concern is whether hosts fully comprehend these contractual terms[@airbnb_terms_2024]. Finally, the legality of the use of Inside Airbnb data is doubtful. Inside Airbnb made use of the skill of web scraping to get the data from Airbnb instead of getting an API from the platform, which is explicitly forbidden by the terms of service from Airbnb[@airbnb_terms_2024]. Moreover, this data acquisition process broke the laws of many regions around the world such as General Data Protection Regulation (GDPA) of Europe and the Privacy Act of Australia [@intersoft_gdpr_2018;@australia_privacy_act_1988]. Although Airbnb has got permissions from the hosts to deal with the sensitive data, Inside Airbnb did not carry out this procedure. With regard to the indirect ethical influence of using data from Inside Airbnb, the problems of discrimination and inequality can be caused.For instance, according to @wachsmuth_airbnb_2018, certain communities may be over-labeled after the analysis through Inside Airbnb data, especially those exist gentrification phenomenon. At the meantime, as @horn_home_2017 mentioned, Inside Airbnb has a high coverage of popular cities or areas. However, there are insufficient listings for those remote regions and markets that are lack of popularity.
 
 
 ## 6. With reference to the InsideAirbnb data (*i.e.* using numbers, figures, maps, and descriptive statistics), what does an analysis of Hosts and Listing types suggest about the nature of Airbnb lets in London?
@@ -235,6 +241,8 @@ for (row, col), cell in table.get_celld().items():
 plt.show()
 ```
 
+The data reveals that 48.9% of hosts are non-professional, typically individual homeowners renting out spare rooms or properties part-time. In contrast, professional hosts, who manage multiple listings, control a significant share, highlighting Airbnb's important for commercial property management[@li_pros_2016;@kwok_pricing_2019].
+Entire home/apartment listings dominate the market, especially among professional hosts, where their share continues to grow. Meanwhile, shared rooms account for a minimal portion, reflecting the market’s clear preference for private and independent spaces.
 
 ```{python}
 # URL of the GitHub file
@@ -387,6 +395,9 @@ fig.legend(
 fig.suptitle("Figure 1: Number of Airbnb Listings in London Boroughs (2019 vs 2024)", fontsize=18, fontweight='bold')
 plt.show()
 ```
+
+In figure1, professional hosts’ listings are concentrated in central London and tourist areas(Westminster, Kensington). In contrast, non-professional hosts(aim to supplement income), tend to have their listings on the outskirts of London.
+The Airbnb market in London has the polarization between the sharing-economy and commercialization.
 
 ## 7.Drawing on your previous answers, and supporting your response with evidence, how could the InsideAirbnb data set be used to inform the regulation of Short-Term Lets (STL) in London?
 
