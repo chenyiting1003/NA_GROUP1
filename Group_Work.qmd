@@ -1,21 +1,18 @@
 ---
-bibliography: reference.bib
-csl: harvard-cite-them-right.csl
-title: Group Name's Group Project
+bibliography: reference_0013.bib
+csl: ucl-university-college-harvard.csl
+title: NA_Group1's Group Project
 execute:
   echo: false
   freeze: true
+downloads:
+  - url: https://raw.githubusercontent.com/chenyiting1003/NA_GROUP1/main/reference_0013.bib
+    path: reference_0013.bib
+  - url: https://raw.githubusercontent.com/chenyiting1003/NA_GROUP1/main/ucl-university-college-harvard.csl
+    path: ucl-university-college-harvard.csl
 format:
-  html:
-    code-copy: true
-    code-link: true
-    toc: true
-    toc-title: On this page
-    toc-depth: 2
-    toc_float:
-      collapsed: false
-      smooth_scroll: true
   pdf:
+    pdf-engine: xelatex
     include-in-header:
       text: |
         \addtokomafont{disposition}{\rmfamily}
@@ -46,50 +43,31 @@ jupyter:
     name: base
 ---
 
-```{python}
-#| echo: false
-import os
-import pandas as pd
-```
+## Declaration of Authorship {.unnumbered .unlisted}
+We, \[NA_GROUP1\], pledge our honour that the work presented in this assessment is our own. Where information has been derived from other sources, we confirm that this has been indicated in the work. Where a Large Language Model such as ChatGPT has been used we confirm that we have made its contribution to the final submission clear.
+Date:16/12/2024
+Student Numbers:
+## Brief Group Reflection
+| What Went Well | What Was Challenging |
+|----------------|----------------------|
+| A              | B                    |
+| C              | D                    |
+## Priorities for Feedback
+Are there any areas on which you would appreciate more detailed feedback if we're able to offer it?
+{{< pagebreak >}}
 
-```{python}
-#| echo: false
-host = 'https://orca.casa.ucl.ac.uk'
-path = '~jreades/data'
-file = '20240614-London-listings.parquet'
+# Response to Questions
 
-if os.path.exists(file):
-  df = pd.read_parquet(file)
-else: 
-  df = pd.read_parquet(f'{host}/{path}/{file}')
-  df.to_parquet(file)
-```
+## 1. Who collected the InsideAirbnb data?
 
----
-
-title: 1. Who collected the InsideAirbnb data?
----
-
-The data is sourced from publicly available information on the Airbnb website and is analyzed, cleaned, and aggregated for public discussion (Inside Airbnb, n.d.). Key contributors include the founder and collaborators who developed tools to enhance data transparency, such as automating search functionality and stabilizing the platform’s code (Inside Airbnb, n.d.; Alsudais, 2021).
+The data is sourced from publicly available information on the Airbnb website and is analyzed, cleaned, and aggregated for public discussion [@inside_airbnb_about]. Key contributors include the founder and collaborators who developed tools to enhance data transparency, such as automating search functionality and stabilizing the platform’s code [@inside_airbnb_about; @alsudais_incorrect_2021].
 
 ## 2. Why did they collect the InsideAirbnb data?
 
-Inside Airbnb collects data to enhance transparency by addressing incomplete and biased reports(Inside Airbnb, n.d.; Alsudais, 2021). Studies show that short-term rentals disrupt communities, drive gentrification, and exacerbate housing inequities in cities like New York, London, and Nanjing (Jiao & Bai, 2020; Wachsmuth & Weisler, 2018; Sun et al., 2021).
+Inside Airbnb collects data to enhance transparency by addressing incomplete and biased reports[@inside_airbnb_about;@alsudais_incorrect_2021]. Studies show that short-term rentals disrupt communities, drive gentrification, and exacerbate housing inequities in cities like New York, London, and Nanjing [@jiao_cities_2020;@wachsmuth_airbnb_2018; @sun_characteristics_2021].
 To promote housing equity, Inside Airbnb focuses on:
-Increasing Transparency: Highlight the effects of short-term rentals on housing availability and affordability (Inside Airbnb, n.d.; Garcia-Ayllon, 2018).
-Supporting Policy Development: Provide actionable data to regulate short-term rentals and tackle urban challenges (UK Government, 2023; Jiao & Bai, 2020).
-
-```{python}
-#| output: asis
-print(f"One of way to embed output in the text looks like this: after cleaning, we were left with {df.shape[0]:,} rows of data.")
-```
-
-This way is also supposed to work (`{python} f"{df.shape[0]:,}"`) but I've found it less reliable.
-
-```{python}
-ax = df.host_listings_count.plot.hist(bins=50);
-ax.set_xlim([0,500]);
-```
+Increasing Transparency: Highlight the effects of short-term rentals on housing availability and affordability [@inside_airbnb_about; @garcia_ayllon_airbnb_2018].
+Supporting Policy Development: Provide actionable data to regulate short-term rentals and tackle urban challenges [@uk_government_2023; @jiao_cities_2020].
 
 ## 3. How was the InsideAirbnb data collected?
 
@@ -118,10 +96,6 @@ Firstly, the Inside Airbnb is supposed to protect the privacy of the hosts. Whil
 
 
 ## 6. With reference to the InsideAirbnb data (*i.e.* using numbers, figures, maps, and descriptive statistics), what does an analysis of Hosts and Listing types suggest about the nature of Airbnb lets in London?
-
-::: duedate
-( 15 points; Answer due {{< var assess.group-date >}} )
-:::
 
 ```{python}
 import pandas as pd
@@ -414,14 +388,6 @@ plt.show()
 
 hhhhh smile
 
-## 
-
-## 7. Drawing on your previous answers, and supporting your response with evidence (*e.g.* figures, maps, EDA/ESDA, and simple statistical analysis/models drawing on experience from, e.g., CASA0007), how *could* the InsideAirbnb data set be used to inform the regulation of Short-Term Lets (STL) in London?
-
-::: duedate
-( 45 points; Answer due {{< var assess.group-date >}} )
-:::
-
 ## Sustainable Authorship Tools
 
 Using the Terminal in Docker, you compile the Quarto report using `quarto render <group_submission_file>.qmd`.
@@ -431,5 +397,3 @@ Your QMD file should automatically download your BibTeX and CLS files and any ot
 Written in Markdown and generated from [Quarto](https://quarto.org/). Fonts used: [Spectral](https://fonts.google.com/specimen/Spectral) (mainfont), [Roboto](https://fonts.google.com/specimen/Roboto) ([sansfont]{style="font-family:Sans-Serif;"}) and [JetBrains Mono](https://fonts.google.com/specimen/JetBrains%20Mono) (`monofont`).
 
 ## References
-
-## 7. Drawing on your previous answers, and supporting your response with evidence (e.g. figures, maps, EDA/ESDA, and simple statistical analysis/models drawing on experience from, e.g., CASA0007), how could the InsideAirbnb data set be used to inform the regulation of Short-Term Lets (STL) in London?

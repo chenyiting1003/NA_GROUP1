@@ -1,21 +1,18 @@
 ---
-bibliography: reference.bib
-csl: harvard-cite-them-right.csl
-title: Group Name's Group Project
+bibliography: reference_0013.bib
+csl: ucl-university-college-harvard.csl
+title: NA_Group1's Group Project
 execute:
   echo: false
   freeze: true
+downloads:
+  - url: https://raw.githubusercontent.com/chenyiting1003/NA_GROUP1/main/reference_0013.bib
+    path: reference_0013.bib
+  - url: https://raw.githubusercontent.com/chenyiting1003/NA_GROUP1/main/ucl-university-college-harvard.csl
+    path: ucl-university-college-harvard.csl
 format:
-  html:
-    code-copy: true
-    code-link: true
-    toc: true
-    toc-title: On this page
-    toc-depth: 2
-    toc_float:
-      collapsed: false
-      smooth_scroll: true
   pdf:
+    pdf-engine: xelatex
     include-in-header:
       text: |
         \addtokomafont{disposition}{\rmfamily}
@@ -46,50 +43,31 @@ jupyter:
     name: base
 ---
 
-```{python}
-#| echo: false
-import os
-import pandas as pd
-```
+## Declaration of Authorship {.unnumbered .unlisted}
+We, \[NA_GROUP1\], pledge our honour that the work presented in this assessment is our own. Where information has been derived from other sources, we confirm that this has been indicated in the work. Where a Large Language Model such as ChatGPT has been used we confirm that we have made its contribution to the final submission clear.
+Date:16/12/2024
+Student Numbers:
+## Brief Group Reflection
+| What Went Well | What Was Challenging |
+|----------------|----------------------|
+| A              | B                    |
+| C              | D                    |
+## Priorities for Feedback
+Are there any areas on which you would appreciate more detailed feedback if we're able to offer it?
+{{< pagebreak >}}
 
-```{python}
-#| echo: false
-host = 'https://orca.casa.ucl.ac.uk'
-path = '~jreades/data'
-file = '20240614-London-listings.parquet'
+# Response to Questions
 
-if os.path.exists(file):
-  df = pd.read_parquet(file)
-else: 
-  df = pd.read_parquet(f'{host}/{path}/{file}')
-  df.to_parquet(file)
-```
+## 1. Who collected the InsideAirbnb data?
 
----
-
-title: 1. Who collected the InsideAirbnb data?
----
-
-The data is sourced from publicly available information on the Airbnb website and is analyzed, cleaned, and aggregated for public discussion (Inside Airbnb, n.d.). Key contributors include the founder and collaborators who developed tools to enhance data transparency, such as automating search functionality and stabilizing the platform’s code (Inside Airbnb, n.d.; Alsudais, 2021).
+The data is sourced from publicly available information on the Airbnb website and is analyzed, cleaned, and aggregated for public discussion [@inside_airbnb_about]. Key contributors include the founder and collaborators who developed tools to enhance data transparency, such as automating search functionality and stabilizing the platform’s code [@inside_airbnb_about; @alsudais_incorrect_2021].
 
 ## 2. Why did they collect the InsideAirbnb data?
 
-Inside Airbnb collects data to enhance transparency by addressing incomplete and biased reports(Inside Airbnb, n.d.; Alsudais, 2021). Studies show that short-term rentals disrupt communities, drive gentrification, and exacerbate housing inequities in cities like New York, London, and Nanjing (Jiao & Bai, 2020; Wachsmuth & Weisler, 2018; Sun et al., 2021).
+Inside Airbnb collects data to enhance transparency by addressing incomplete and biased reports[@inside_airbnb_about;@alsudais_incorrect_2021]. Studies show that short-term rentals disrupt communities, drive gentrification, and exacerbate housing inequities in cities like New York, London, and Nanjing [@jiao_cities_2020;@wachsmuth_airbnb_2018; @sun_characteristics_2021].
 To promote housing equity, Inside Airbnb focuses on:
-Increasing Transparency: Highlight the effects of short-term rentals on housing availability and affordability (Inside Airbnb, n.d.; Garcia-Ayllon, 2018).
-Supporting Policy Development: Provide actionable data to regulate short-term rentals and tackle urban challenges (UK Government, 2023; Jiao & Bai, 2020).
-
-```{python}
-#| output: asis
-print(f"One of way to embed output in the text looks like this: after cleaning, we were left with {df.shape[0]:,} rows of data.")
-```
-
-This way is also supposed to work (`{python} f"{df.shape[0]:,}"`) but I've found it less reliable.
-
-```{python}
-ax = df.host_listings_count.plot.hist(bins=50);
-ax.set_xlim([0,500]);
-```
+Increasing Transparency: Highlight the effects of short-term rentals on housing availability and affordability [@inside_airbnb_about; @garcia_ayllon_airbnb_2018].
+Supporting Policy Development: Provide actionable data to regulate short-term rentals and tackle urban challenges [@uk_government_2023; @jiao_cities_2020].
 
 ## 3. How was the InsideAirbnb data collected?
 
@@ -114,17 +92,10 @@ On one hand, the possibility that research using this dataset could unintentiona
 
 ## 5. What ethical considerations does the use of the InsideAirbnb data raise?
 
-Firstly, the Inside Airbnb is supposed to protect the privacy of the hosts. While Inside Airbnb asserts that it avoids using personal information and processes data carefully (Inside Airbnb, n.d.), the raw data scraped from Airbnb’s website often includes host names, housing locations, and other sensitive information. Even when locations are obfuscated, the inclusion of identifiable data challenges the hosts' right to privacy.
-Compared with privacy rights, the right to know how the hosts’ information is being used is well protected by Airbnb and Inside Airbnb. As the privacy policies of Airbnb (Airbnb, n.d.)maintained, the types of personal information they collected are clearly shown on the website. The process and targets of using these data are also informed and legally guaranteed. Once these policies are changed greatly, they will connect the hosts. Hosts also enter into contracts with Airbnb, consenting to the use of their information. However, a key concern is whether hosts fully comprehend these contractual terms (Airbnb, n.d.).
-Finally, the legality of the use of Inside Airbnb data is doubtful. Inside Airbnb made use of the skill of web scraping to get the data from Airbnb instead of getting an API from the platform, which is explicitly forbidden by the terms of service from Airbnb (Airbnb, n.d.) . Moreover, this data acquisition process broke the laws of many regions around the world such as General Data Protection Regulation (GDPA) of Europe and the Privacy Act of Australia (Intersoft Consulting, 2018; Australia Government, 1988). Although Airbnb has got permissions from the hosts to deal with the sensitive data, Inside Airbnb did not carry out this procedure.
-With regard to the indirect ethical influence of using data from Inside Airbnb, the problems of discrimination and inequality can be caused. For instance, according to Wachsmuth and Weisler (2018), certain communities may be over-labeled after the analysis through Inside Airbnb data, especially those exist gentrification phenomenon. At the meantime, as Horn & Merante (2017) mentioned, Inside Airbnb has a high coverage of popular cities or areas. However, there are insufficient listings for those remote regions and markets that are lack of popularity.
+Firstly, the Inside Airbnb is supposed to protect the privacy of the hosts. While Inside Airbnb asserts that it avoids using personal information and processes data carefully (Inside Airbnb, n.d.), the raw data scraped from Airbnb’s website often includes host names, housing locations, and other sensitive information. Even when locations are obfuscated, the inclusion of identifiable data challenges the hosts’ right to privacy. Compared with privacy rights, the right to know how the hosts’ information is being used is well protected by Airbnb and Inside Airbnb. As the privacy policies of Airbnb (Airbnb, n.d.)maintained, the types of personal information they collected are clearly shown on the website. The process and targets of using these data are also informed and legally guaranteed. Once these policies are changed greatly, they will connect the hosts. Hosts also enter into contracts with Airbnb, consenting to the use of their information. However, a key concern is whether hosts fully comprehend these contractual terms (Airbnb, n.d.). Finally, the legality of the use of Inside Airbnb data is doubtful. Inside Airbnb made use of the skill of web scraping to get the data from Airbnb instead of getting an API from the platform, which is explicitly forbidden by the terms of service from Airbnb (Airbnb, n.d.) . Moreover, this data acquisition process broke the laws of many regions around the world such as General Data Protection Regulation (GDPA) of Europe and the Privacy Act of Australia (Intersoft Consulting, 2018; Australia Government, 1988). Although Airbnb has got permissions from the hosts to deal with the sensitive data, Inside Airbnb did not carry out this procedure. With regard to the indirect ethical influence of using data from Inside Airbnb, the problems of discrimination and inequality can be caused.For instance, according to Wachsmuth and Weisler (2018), certain communities may be over-labeled after the analysis through Inside Airbnb data, especially those exist gentrification phenomenon. At the meantime, as Horn & Merante (2017) mentioned, Inside Airbnb has a high coverage of popular cities or areas. However, there are insufficient listings for those remote regions and markets that are lack of popularity.
 
 
 ## 6. With reference to the InsideAirbnb data (*i.e.* using numbers, figures, maps, and descriptive statistics), what does an analysis of Hosts and Listing types suggest about the nature of Airbnb lets in London?
-
-::: duedate
-( 15 points; Answer due {{< var assess.group-date >}} )
-:::
 
 ```{python}
 import pandas as pd
@@ -136,57 +107,50 @@ import requests
 import gzip
 import io
 
-# 1. 定义文件的 URL
+# 1. Define the URL of the file
 url = "https://data.insideairbnb.com/united-kingdom/england/london/2024-09-06/data/listings.csv.gz"
 
-# 2. 下载文件
+# 2. Download the file
 response = requests.get(url)
-if response.status_code == 200:
-    print("文件下载成功")
-else:
-    raise Exception(f"无法下载文件，状态码: {response.status_code}")
 
-# 3. 读取压缩文件
+# 3. Read the compressed file
 with gzip.GzipFile(fileobj=io.BytesIO(response.content)) as gz:
     listings = pd.read_csv(gz)
 ```
 
 ```{python}
-from tabulate import tabulate  # 用于格式化表格输出
+from tabulate import tabulate
 
-# 确保 host_id 唯一化
+# Ensure the uniqueness of host_id
 unique_hosts = listings[['host_id', 'host_total_listings_count', 'room_type']].drop_duplicates()
 
-# 创建分组范围
+# Create grouping ranges
 bins = [0, 1, 2, 3, 10, 50, 100, 200, float('inf')]
 labels = ['1', '2', '3', '4 to 10', '11 to 50', '51 to 100', '101 to 200', '200 or more']
 unique_hosts['host_group'] = pd.cut(unique_hosts['host_total_listings_count'], bins=bins, labels=labels)
 
-# 计算人数和占比（基于唯一房东）
+# Calculate the number and percentage of hosts (based on unique hosts)
 grouped = unique_hosts.groupby('host_group', observed=False)
 summary = grouped.size().reset_index(name='Number of Hosts')
 summary['% of Hosts'] = (summary['Number of Hosts'] / summary['Number of Hosts'].sum() * 100).round(2)
 
-# 计算房源类型占比（基于唯一房东）
+# Calculate the room type percentage (based on unique hosts)
 room_type_counts = grouped['room_type'].value_counts(normalize=True).unstack(fill_value=0) * 100
-room_type_counts = room_type_counts.round(2)  # 保留两位小数
+room_type_counts = room_type_counts.round(2)  # Retain two decimal places
 
-# 确保房源类型仅保留 3 列
+# Ensure only 3 columns for room types
 room_type_counts = room_type_counts[['Entire home/apt', 'Private room', 'Shared room']]
 
-# 合并结果
+# Merge the results
 result = summary.merge(room_type_counts, left_on='host_group', right_index=True, how='left')
 
-# 重命名列以匹配表格格式
+# Rename columns to match the table format
 result.columns = ['No. listings linked to host ID', 'Number of Hosts', '% of Hosts',
                   '% Entire home/apt', '% Private room', '% Shared room']
 ```
 
 ```{python}
-import matplotlib.pyplot as plt
-import pandas as pd
-
-# 原始数据（未包含 TOTAL 行）
+# Original data (excluding the TOTAL row)
 data = {
     "No. listings linked to host ID": ["1", "2", "3", "4 to 10", "11 to 50", "51 to 100", "101 to 200", "200 or more"],
     "Number of Hosts": [29616, 13236, 6177, 8820, 2298, 264, 88, 66],
@@ -196,10 +160,10 @@ data = {
     "% Shared room": [0.50, 0.57, 0.65, 0.62, 0.91, 0.76, 1.14, 3.03],
 }
 
-# 创建 DataFrame
+# Create DataFrame
 df = pd.DataFrame(data)
 
-# 计算 TOTAL 行并限制为两位小数
+# Calculate the TOTAL row and round to two decimal places
 total_row = {
     "No. listings linked to host ID": "TOTAL",
     "Number of Hosts": df["Number of Hosts"].sum(),
@@ -209,19 +173,19 @@ total_row = {
     "% Shared room": round((df["% Shared room"] * df["Number of Hosts"]).sum() / df["Number of Hosts"].sum(), 2),
 }
 
-# 添加 TOTAL 行
+# Add the TOTAL row
 df = pd.concat([df, pd.DataFrame([total_row])], ignore_index=True)
 
-# 限制所有小数列为两位小数
+# Round all decimal columns to two decimal places
 decimal_columns = ["% of Hosts", "% Entire home/apt", "% Private room", "% Shared room"]
 df[decimal_columns] = df[decimal_columns].round(2)
 
-# 创建绘图
-fig, ax = plt.subplots(figsize=(15, 5))  # 设置图表大小
+# Create the plot
+fig, ax = plt.subplots(figsize=(15, 5))  # Set chart size
 ax.axis('tight')
 ax.axis('off')
 
-# 创建表格
+# Create the table
 table = ax.table(
     cellText=df.values,
     colLabels=df.columns,
@@ -229,101 +193,95 @@ table = ax.table(
     loc='center'
 )
 
-# 设置表格样式
+# Set table styles
 table.auto_set_font_size(False)
 table.set_fontsize(10)
 
-# 调整列宽和行高
-row_height = 0.1  # 每行的高度
-first_col_width = 0.3  # 第一列宽度
-other_col_width = 0.15  # 其他列宽度
+# Adjust column widths and row heights
+row_height = 0.1  # Height for each row
+first_col_width = 0.3  # Width of the first column
+other_col_width = 0.15  # Width of other columns
 
-# 遍历每个单元格，设置宽度和高度
+# Iterate over each cell to set width, height, and styles
 for (row, col), cell in table.get_celld().items():
-    cell.set_edgecolor('black')  # 设置边框颜色
-    cell.set_linewidth(0.8)  # 边框宽度
+    cell.set_edgecolor('black')  # Set border color
+    cell.set_linewidth(0.8)  # Border width
 
-    # 设置标题行样式
-    if row == 0:  # 标题行
-        cell.set_facecolor("#D9D9D9")  # 灰色背景
-        cell.set_text_props(fontweight='bold')  # 加粗字体
+    # Set header row styles
+    if row == 0:  # Header row
+        cell.set_facecolor("#D9D9D9")  # Gray background
+        cell.set_text_props(fontweight='bold')  # Bold font
         row_height = 0.15
-    # 设置 TOTAL 行样式
-    elif row == len(df) :  # TOTAL 行
-        cell.set_facecolor("#D9D9D9")  # 灰色背景
-        cell.set_text_props(fontweight='bold')  # 加粗字体
-    # 设置第二行样式
-    elif row == 1:  # 第二行
-        cell.set_facecolor("#D9EAF7")  # 浅蓝色背景
+    # Set TOTAL row styles
+    elif row == len(df):  # TOTAL row
+        cell.set_facecolor("#D9D9D9")  # Gray background
+        cell.set_text_props(fontweight='bold')  # Bold font
+    # Set second row styles
+    elif row == 1:  # Second row
+        cell.set_facecolor("#D9EAF7")  # Light blue background
 
-    # 设置列宽
-    if col == 0:  # 第一列
+    # Set column widths
+    if col == 0:  # First column
         cell.set_width(first_col_width)
     else:
         cell.set_width(other_col_width)
-    # 设置行高
+    # Set row height
     cell.set_height(row_height)
 
-# 显示表格
+# Display the table
 plt.show()
 ```
 
 ```{python}
-# GitHub 文件的 URL
+# URL of the GitHub file
 url = "https://github.com/chenyiting1003/NA_GROUP1/raw/refs/heads/main/airbnb_borough_data_2019.csv"
 
-# 读取 CSV 文件到 DataFrame
+# Read the CSV file into a DataFrame
 airbnb_2019 = pd.read_csv(url)
-
-# 显示前几行数据
-print(airbnb_2019.head())
 ```
 
 ```{python}
-# 对 listings 数据按 neighbourhood_cleansed 和 room_type 进行统计
+# Group the listings data by neighbourhood_cleansed and room_type
 listings_grouped = listings.groupby(['neighbourhood_cleansed', 'room_type']).size().unstack(fill_value=0).reset_index()
 
-# 动态处理列名
+# Dynamically handle column names
 listings_grouped.columns = ['Borough'] + listings_grouped.columns[1:].tolist()
 
-# 将 Borough 名称统一为小写，以便与 airbnb_2019 合并
+# Standardize Borough names to lowercase for merging with airbnb_2019
 listings_grouped['Borough'] = listings_grouped['Borough'].str.lower()
 airbnb_2019['Borough'] = airbnb_2019['Borough'].str.lower()
 
-# 合并两个数据框
+# Merge the two DataFrames
 combined_data = pd.merge(
     airbnb_2019,
     listings_grouped,
     on='Borough',
     how='outer',
-    suffixes=('_2019', '_2024')  # 为避免列名冲突添加后缀
+    suffixes=('_2019', '_2024')  # Add suffixes to avoid column name conflicts
 )
 
-# 填充缺失值为 0
+# Fill missing values with 0
 combined_data.fillna(0, inplace=True)
 
-# 删除 "Total" 和 "Hotel room" 列（如果存在）
+# Drop the "Total" and "Hotel room" columns (if they exist)
 columns_to_drop = ['Total', 'Hotel room']
 cleaned_data = combined_data.drop(columns=[col for col in columns_to_drop if col in combined_data.columns])
 ```
 
 ```{python}
-# 替换 Borough 列中指定的名称
+# Replace specific names in the Borough column
 cleaned_data['Borough'] = cleaned_data['Borough'].replace({
     'hammersmith and fulham': 'H&F',
     'kensington and chelsea': 'K&C',
     'barking and dagenham': 'B&D'
 }, regex=False)
-
-# 检查替换后的结果
-print(cleaned_data['Borough'].unique())
 ```
 
 ```{python}
 import matplotlib.pyplot as plt
 import matplotlib.ticker as ticker
 
-# 定义 7 行 8 列布局的地理区域位置
+# Define a 7x8 layout of geographical regions
 borough_layout = [
     [None, None, None, None, "Enfield", None, None, None],
     [None, None, None, "Harrow", "Barnet", "Haringey", "Waltham Forest", None],
@@ -334,90 +292,90 @@ borough_layout = [
     [None, None, None, "Sutton", None, None, None, None],
 ]
 
-# 设置统一的 Y 轴范围最大值为 12000
+# Set a unified maximum Y-axis range to 12000
 y_max = 12000
 
-# 按指定颜色设置房源类型
+# Assign colors to room types
 color_mapping = {
-    'Entire home/apt': "#4472C4",  # 蓝色
-    'Private room': "#EDC586",  # 黄色
-    'Shared room': "#E86C74",  # 红色
+    'Entire home/apt': "#4472C4",  # Blue
+    'Private room': "#EDC586",  # Yellow
+    'Shared room': "#E86C74",  # Red
 }
 
-# 创建 7 行 8 列的画布和子图（调整间距使更紧凑）
+# Create a 7x8 canvas with subplots (adjust spacing for compactness)
 fig, axes = plt.subplots(nrows=7, ncols=8, figsize=(16, 12), gridspec_kw={'wspace': 0.1, 'hspace': 0.4})
 
-# 遍历布局并填充子图
+# Iterate through the layout and populate subplots
 for i, row in enumerate(borough_layout):
     for j, borough in enumerate(row):
         ax = axes[i, j]
         
-        if borough is None:  # 如果布局中没有对应的 Borough，则关闭子图
+        if borough is None:  # Turn off subplot if there is no borough
             ax.axis("off")
             continue
         
-        # 设置小图背景颜色为浅灰色
+        # Set the background color of the subplot to light gray
         ax.set_facecolor("#F2F2F2")
         
-        # 移除子图的边框
+        # Remove subplot borders
         for spine in ax.spines.values():
             spine.set_visible(False)
         
-        # 提取当前区域的数据
+        # Extract data for the current region
         subset = cleaned_data[cleaned_data['Borough'].str.contains(borough, case=False)]
         
-        # 准备绘图数据
-        years = [2019, 2024]  # 年份
-        room_types = ['Entire home/apt', 'Private room', 'Shared room']  # 房源类型
+        # Prepare data for plotting
+        years = [2019, 2024]  # Years
+        room_types = ['Entire home/apt', 'Private room', 'Shared room']  # Room types
         data = {
             room: [subset[f"{room}_2019"].sum(), subset[f"{room}_2024"].sum()] 
             for room in room_types
         }
 
-        # 创建堆叠面积图
-        bottom = [0] * len(years)  # 初始堆叠的底部
+        # Create a stacked area chart
+        bottom = [0] * len(years)  # Initial base of the stack
         for room_type in room_types:
             ax.fill_between(
                 years, bottom, [sum(x) for x in zip(bottom, data[room_type])],
                 label=room_type, alpha=0.9, color=color_mapping[room_type]
             )
-            bottom = [sum(x) for x in zip(bottom, data[room_type])]  # 更新底部
+            bottom = [sum(x) for x in zip(bottom, data[room_type])]  # Update the base
         
-        # 设置标题的背景框
+        # Add a title with a background box
         title_text = borough.title()
         ax.text(
-            0.5, 1.1, title_text,  # 标题位置
+            0.5, 1.1, title_text,  # Position of the title
             fontsize=10, color="#333333", ha='center', va='center',
             transform=ax.transAxes
         )
 
-        ax.set_ylim(0, y_max)  # 设置统一的 Y 轴范围
+        ax.set_ylim(0, y_max)  # Set the unified Y-axis range
         
-        # 显示 X 和 Y 轴的逻辑
+        # Display logic for X and Y axes
         if borough in ["Enfield", "Harrow", "Hillingdon", "Hounslow", "Kingston", "Richmond", "Sutton"]:
-            # 显示 Y 轴刻度和标签
+            # Show Y-axis ticks and labels
             ax.set_yticks(range(0, y_max + 1, 3000))
-            ax.yaxis.set_major_formatter(ticker.StrMethodFormatter('{x:,.0f}'))  # 格式化刻度
+            ax.yaxis.set_major_formatter(ticker.StrMethodFormatter('{x:,.0f}'))  # Format ticks
             ax.tick_params(axis='y', labelsize=8)
             ax.set_ylabel("Listings", fontsize=9)
             
-            # 同时显示 X 轴刻度和标签
+            # Show X-axis ticks and labels
             ax.set_xticks(years)
             ax.set_xticklabels(["2019", "2024"], fontsize=9)
         else:
-            # 隐藏 Y 轴刻度
+            # Hide Y-axis ticks
             ax.set_yticks(range(0, y_max + 1, 3000))
             ax.tick_params(axis='y', labelsize=0)
             
-            # 隐藏 X 轴刻度和标签
+            # Hide X-axis ticks and labels
             ax.set_xticks(years)
             ax.tick_params(axis='x', labelsize=0)
 
-        # 添加网格线
+        # Add gridlines
         ax.grid(visible=True, linestyle='--', linewidth=0.5, alpha=0.6)
 
-# 添加全局图例
-fig.subplots_adjust(bottom=0)  # 增加底部留白，将图例下移
+# Add a global legend
+fig.subplots_adjust(bottom=0)  # Increase bottom space for the legend
 fig.legend(
     color_mapping.keys(), loc="lower right", ncol=3, fontsize=12, 
     title="Room Type", title_fontsize=13, frameon=True
@@ -430,14 +388,6 @@ plt.show()
 
 hhhhh smile
 
-## 
-
-## 7. Drawing on your previous answers, and supporting your response with evidence (*e.g.* figures, maps, EDA/ESDA, and simple statistical analysis/models drawing on experience from, e.g., CASA0007), how *could* the InsideAirbnb data set be used to inform the regulation of Short-Term Lets (STL) in London?
-
-::: duedate
-( 45 points; Answer due {{< var assess.group-date >}} )
-:::
-
 ## Sustainable Authorship Tools
 
 Using the Terminal in Docker, you compile the Quarto report using `quarto render <group_submission_file>.qmd`.
@@ -447,5 +397,3 @@ Your QMD file should automatically download your BibTeX and CLS files and any ot
 Written in Markdown and generated from [Quarto](https://quarto.org/). Fonts used: [Spectral](https://fonts.google.com/specimen/Spectral) (mainfont), [Roboto](https://fonts.google.com/specimen/Roboto) ([sansfont]{style="font-family:Sans-Serif;"}) and [JetBrains Mono](https://fonts.google.com/specimen/JetBrains%20Mono) (`monofont`).
 
 ## References
-
-## 7. Drawing on your previous answers, and supporting your response with evidence (e.g. figures, maps, EDA/ESDA, and simple statistical analysis/models drawing on experience from, e.g., CASA0007), how could the InsideAirbnb data set be used to inform the regulation of Short-Term Lets (STL) in London?
