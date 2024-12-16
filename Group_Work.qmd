@@ -184,7 +184,7 @@ The data reveals that 48.9% of hosts are non-professional, typically individual 
 Entire home/apartment listings dominate the market, especially among professional hosts, where their share continues to grow. Meanwhile, shared rooms account for a minimal portion, reflecting the market’s clear preference for private and independent spaces.
 
 ```{python}
-# URL of the GitHub file
+# URL of the GitHub file, scrape from the GLA's Housing Research Note 4
 url1 = "https://github.com/chenyiting1003/NA_GROUP1/raw/refs/heads/main/airbnb_borough_data_2019.csv"
 
 # Read the CSV file into a DataFrame
@@ -413,7 +413,6 @@ response.raise_for_status()  # Raise an exception for HTTP errors
 data_local_rent = pd.read_excel(BytesIO(response.content), skiprows=7, engine="openpyxl")
 ```
 
-
 ```{python}
 # Select required columns and remove rows with missing 'price'
 listings_filtered = listings_2024[['id', 'room_type', 'price', 'neighbourhood_cleansed']].dropna(subset=['price'])
@@ -489,6 +488,9 @@ styled_df = comparison_df.style.format({
 styled_df
 ```
 
+
+In Table 2, we reference the Valuation Office Agency's published data to calculate the average daily income from long-term rentals in London (VOA), which amounts to £67 per day. Using data scraped from the Inside Airbnb dataset we estimate the average daily income from short-term lets (STL) to be £239. 
+The estimated annual income for host in the VOA type is approximately £24,446. If the STL rental period stays within the legally permitted 90 nights per year, the annual income (£21,489) is slightly lower than that of the VOA type. When considering additional costs associated with STL, such as cleaning and vacancy risks, host are unlikely to withdraw their properties from the long-term rental market. However, if host exceed the 90-night limit (estimated at around 102 nights), the economic return from short-term rentals (£24,354) surpasses that of long-term rentals in the open market, indicating a high potential for speculative behavior.
 
 ```{python}
 # Counting the number of Entire home/apt airbnb in London neighborhoods in September 2024
