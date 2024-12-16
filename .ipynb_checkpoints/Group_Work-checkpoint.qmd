@@ -1,15 +1,15 @@
 ---
+downloads:
+  - url: https://raw.githubusercontent.com/chenyiting1003/NA_GROUP1/main/reference_0013.bib
+    path: reference_0013.bib
+  - url: https://raw.githubusercontent.com/citation-style-language/styles/master/harvard-cite-them-right.csl
+    path: harvard-cite-them-right.csl
 bibliography: reference_0013.bib
-csl: ucl-university-college-harvard.csl
+csl: harvard-cite-them-right.csl
 title: NA_Group1's Group Project
 execute:
   echo: false
   freeze: true
-downloads:
-  - url: https://raw.githubusercontent.com/chenyiting1003/NA_GROUP1/main/reference_0013.bib
-    path: reference_0013.bib
-  - url: https://raw.githubusercontent.com/chenyiting1003/NA_GROUP1/main/ucl-university-college-harvard.csl
-    path: ucl-university-college-harvard.csl
 format:
   pdf:
     include-in-header:
